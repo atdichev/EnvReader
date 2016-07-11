@@ -1,6 +1,5 @@
 # EnvReader
-A Java configuration management solution based on annotations. Currently the supported return types
-are int,float,double,String and boolean.
+A Java configuration management solution based on annotations.
 By default properties are read from system environment variables but you can easily provide your own implementations to read from other locations 
 and formats like JSON,TOML, YAML etc.
 
