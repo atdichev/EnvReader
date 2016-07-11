@@ -46,8 +46,9 @@ class MethodHandler {
     }
 
     public Object getValue() {
-        if (!isBound)
+        if (!isBound) {
             return initialValue;
+        }
         return Utils.convert(parser.get(key), returnType);
     }
 
