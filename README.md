@@ -1,14 +1,13 @@
 # EnvReader
-A Java configuration management solution based on annotations.
-By default properties are read from system environment variables but you can easily provide your own implementations to read from other locations 
-and formats like JSON,TOML, YAML etc.
+Type safe Java configuration management solution completeley based on annotations.
+Supports JSON, XML, YAML, Java properties and System environment variables.
+Binding is supported to read the latest values from the corresponding source.
 
-======
-###Example
+
+### Example
 
 ```java
-
-@Env //required
+@Env(type = Type.JSON, file = "src/config/config.json" )
 interface Config {
   
     //by default method name is the property key
@@ -27,33 +26,37 @@ interface Config {
 Config config = EnvReader.createReader(Config.class); //reads from system env
 
 ```
-======
-###Custom Parsers
-Custom Property parsers can be provided by implementing PropertyParser interface.
-####Example
+Reading from Xml
 ```java
-//PropertyParser to read from .properties file
-public class PropertyFilesParser implements PropertyParser {
-
-    private final Properties properties;
-
-    public PropertyFilesParser(String fileName) throws IOException {
-        InputStream inputStream = getClass().getResourceAsStream(fileName);
-        properties = new Properties();
-        properties.load(inputStream);
-    }
-
-    @Override
-    public Object get(String property) {
-        return properties.getProperty(property); // no need to handle type conversions here
-    }
+@Env(type = Type.XML, file = "src/config/config.xml")
+interface Config {
+    // declarations
 }
-//creation 
-Config config = EnvReader.createReader(Config.class , new PropertyFilesParser("app.properties") );//now reads from app.properties file 
 ```
-Similarly parsers can be implemented and used for other formats.
 
-======
-###Note
-With @Bind annotation, the PropertyParser's get method is called each time when the property is accessed and that value is returned.
-Otherwise the initital value of the property which is read when creating the reader is returned.
+Reading from Yaml
+```java
+@Env(type = Type.YAML, file = "src/config/config.yaml")
+interface Config {
+    // declarations
+}
+```
+
+Reading from Java properties file
+```java
+@Env(type = Type.PROPERTIES, file = "src/config/config.properties")
+interface Config {
+    // declarations
+}
+```
+
+Reading from System environment variables
+```java
+@Env // by default values are read from system env
+interface Config {
+    // declarations
+}
+```
+
+
+
