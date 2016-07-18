@@ -2,6 +2,7 @@ package reader;
 
 import annotation.Bind;
 import annotation.Property;
+import reader.parsers.PropertyParser;
 
 import java.lang.reflect.Method;
 
@@ -14,15 +15,15 @@ class MethodHandler {
     private final PropertyParser parser;
 
     public MethodHandler(Method method, EnvConfig envConfig, PropertyParser parser) {
-
         this.isBound = method.isAnnotationPresent(Bind.class);
         this.returnType = method.getReturnType();
         this.key = envConfig.getConfiguredKey(checkValid(method));
         this.parser = parser;
-        if (parser.get(key) == null) {
+        String value = parser.get(key);
+        if (value == null) {
             throw new EnvException("Specified key " + key + " is not present ");
         }
-        this.initialValue = Utils.convert(parser.get(key), returnType);
+        this.initialValue = Utils.convert(value, returnType);
     }
 
     private String checkValid(Method method) {
@@ -49,8 +50,9 @@ class MethodHandler {
         if (!isBound) {
             return initialValue;
         }
+        //get the new value
+        parser.reLoad();
         return Utils.convert(parser.get(key), returnType);
     }
-
 
 }

@@ -6,32 +6,82 @@ import annotation.Property;
 
 import java.util.List;
 
-@Env
+@Env(type = Type.JSON, file = Constants.JSON_FILE_PATH)
 interface EnvTestInterface {
 
-    @Bind("Path")
-    String val();
+    String name();
 
-    String Path();
+    int age();
+
 }
 
-@Env(Prefix = "Pa")
+interface Config {
+
+    String name();
+
+    int age();
+
+    String city();
+
+    @Property("nest.one")
+    int one();
+
+    @Property("nest.two")
+    int two();
+
+    @Property("nest.three.inThree.four")
+    int four();
+
+    boolean greatestSuperHero();
+
+}
+
+
+@Env(type = Type.JSON, file = Constants.JSON_FILE_PATH)
+interface JsonConfig extends Config {
+
+}
+
+@Env(type = Type.XML, file = Constants.XML_FILE_PATH)
+interface XmlConfig extends Config {
+}
+
+@Env(type = Type.YAML, file = Constants.YAML_FILE_PATH)
+interface YamlConfig extends Config {
+}
+
+@Env(type = Type.PROPERTIES, file = Constants.PROPERTIES_FILE_PATH)
+interface PropertiesConfig {
+    String name();
+
+    int age();
+
+    String city();
+}
+
+@Env(type = Type.JSON, file = "blahblahblah")
+interface InvalidFileLocationInterface {
+
+}
+
+@Env(Prefix = "na", type = Type.JSON, file = Constants.JSON_FILE_PATH)
 interface WithPrefix {
-    String th();
+    String me();
 }
 
 interface Dummy {
 
 }
 
+@Env
 interface WrongPropertyName {
-    String paths();
+    String blahblah();
 }
 
 @Env
 interface WithBothPropNdBind {
-    @Bind("we")
-    @Property("ew")
+    @Bind("name")
+    @Property("name")
     String blah();
 }
 

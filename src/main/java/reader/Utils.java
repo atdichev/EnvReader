@@ -1,9 +1,10 @@
 package reader;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-class Utils {
+final class Utils {
 
     private static final Set<Class<?>> validReturnTypes;
 
@@ -26,26 +27,29 @@ class Utils {
 
     private static boolean equalsAny(final Class<?> testClass, final Class<?>... classes) {
         for (Class<?> aClass : classes) {
-            if (aClass.equals(testClass))
+            if (aClass.equals(testClass)) {
                 return true;
+            }
         }
         return false;
     }
 
-    @SuppressWarnings("all")
-    public static Object convert(final Object o, final Class<?> aClass) {
-        String stringVal = o.toString();
-        if (equalsAny(aClass, double.class, Double.class))
-            return Double.valueOf(stringVal).doubleValue();
-        else if (equalsAny(aClass, float.class, Float.class))
-            return Double.valueOf(stringVal).floatValue();
-        else if (equalsAny(aClass, int.class, Integer.class))
-            return Double.valueOf(stringVal).intValue();
-        else if (equalsAny(aClass, boolean.class, Boolean.class)) {
-            return stringVal.equalsIgnoreCase("true");
-        }
-        return stringVal;
+    public static boolean existsFile(File file) {
+        return file.exists() && !file.isDirectory();
     }
 
+    @SuppressWarnings("all")
+    public static Object convert(final String s, final Class<?> aClass) {
+        if (equalsAny(aClass, double.class, Double.class))
+            return Double.valueOf(s).doubleValue();
+        else if (equalsAny(aClass, float.class, Float.class))
+            return Double.valueOf(s).floatValue();
+        else if (equalsAny(aClass, int.class, Integer.class))
+            return Double.valueOf(s).intValue();
+        else if (equalsAny(aClass, boolean.class, Boolean.class)) {
+            return s.equalsIgnoreCase("true");
+        }
+        return s;
+    }
 
 }

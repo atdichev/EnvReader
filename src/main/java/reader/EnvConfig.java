@@ -11,8 +11,7 @@ class EnvConfig {
     }
 
     public String getConfiguredKey(String key) {
-        if (prefix.isEmpty())
-            return key;
-        return prefix + key;
+        return prefix.isEmpty() ? key : prefix + key;
     }
+
 }

@@ -7,10 +7,11 @@ public class UtilsTest {
     @Test
     @SuppressWarnings("all")
     public void testConversions() {
-        Assert.assertEquals(Utils.convert("12", double.class), 12D);
-        Assert.assertEquals(Utils.convert("12", int.class), 12);
-        Assert.assertEquals(Utils.convert("12.23", int.class), 12);
-        Assert.assertEquals(Utils.convert("12.23", Integer.class), 12);
-        Assert.assertEquals(Utils.convert("12.23", String.class), "12.23");
+        Assert.assertEquals(12D, Utils.convert("12", double.class));
+        Assert.assertEquals(12, Utils.convert("12", int.class));
+        Assert.assertEquals(12, Utils.convert("12.23", int.class));
+        Assert.assertEquals(12, Utils.convert("12.23", Integer.class));
+        Assert.assertEquals("12.23", Utils.convert("12.23", String.class));
+        Assert.assertEquals(true, Utils.convert("true", boolean.class));
     }
 }

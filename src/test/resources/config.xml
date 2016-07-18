@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <name>Bruce Wayne</name>
+    <age>42</age>
+    <city>Gotham</city>
+    <greatestSuperHero>true</greatestSuperHero>
+    <nest>
+        <one>1</one>
+        <two>2</two>
+        <three>
+            <inThree>
+                <four>4</four>
+            </inThree>
+        </three>
+    </nest>
+</config>

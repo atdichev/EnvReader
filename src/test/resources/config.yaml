@@ -1,0 +1,11 @@
+---
+  name: "Bruce Wayne"
+  age: 42
+  city: "Gotham"
+  greatestSuperHero : true
+  nest:
+    one: 1
+    two: 2
+    three:
+      inThree:
+        four: 4
