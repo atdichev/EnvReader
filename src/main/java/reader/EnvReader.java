@@ -9,7 +9,7 @@ import java.util.Objects;
 public class EnvReader {
 
     private static void checkValidClass(Class<?> aClass) {
-        Objects.requireNonNull(aClass, "aClass cannot be null");
+        Utils.requireNonNull(aClass, "aClass cannot be null");
         if (!aClass.isInterface()) {
             throw new EnvException("Only Interfaces can have Env Annotation");
         }
