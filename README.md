@@ -24,7 +24,7 @@ interface Config {
 }
 
 //create
-Config config = EnvReader.createReader(Config.class); //reads from system env
+Config config = EnvReader.createReader(Config.class);
 
 ```
 Reading from System environment variables
