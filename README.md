@@ -1,4 +1,5 @@
-# EnvReader
+# EnvReader 
+[![Build Status](https://travis-ci.org/ashrko619/EnvReader.svg?branch=master)](https://travis-ci.org/ashrko619/EnvReader)
 Type safe Java configuration management solution completeley based on annotations.
 Supports JSON, XML, YAML, Java properties and System environment variables.
 Binding is supported to read the latest values from the corresponding source.
@@ -26,6 +27,14 @@ interface Config {
 Config config = EnvReader.createReader(Config.class); //reads from system env
 
 ```
+Reading from System environment variables
+```java
+@Env // by default values are read from system env
+interface Config {
+    // declarations
+}
+```
+
 Reading from Xml
 ```java
 @Env(type = Type.XML, file = "src/config/config.xml")
@@ -49,14 +58,3 @@ interface Config {
     // declarations
 }
 ```
-
-Reading from System environment variables
-```java
-@Env // by default values are read from system env
-interface Config {
-    // declarations
-}
-```
-
-
-
