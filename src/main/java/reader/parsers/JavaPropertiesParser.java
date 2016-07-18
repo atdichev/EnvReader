@@ -2,7 +2,8 @@ package reader.parsers;
 
 import reader.EnvException;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class JavaPropertiesParser implements PropertyParser {

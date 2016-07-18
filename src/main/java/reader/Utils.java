@@ -57,5 +57,5 @@ final class Utils {
             throw new NullPointerException(message);
         return obj;
     }
-    
+
 }

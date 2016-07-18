@@ -1,7 +1,7 @@
 package reader.parsers;
 
-import reader.Type;
 import reader.EnvException;
+import reader.Type;
 
 import java.io.File;
 import java.io.FileInputStream;
