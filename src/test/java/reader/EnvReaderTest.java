@@ -103,4 +103,9 @@ public class EnvReaderTest {
         Assert.assertEquals(42, config.age());
     }
 
+    @Test
+    public void testTakeMethodNameAsKeyWhenBindValueEmpty() {
+        Assert.assertNotNull(EnvReader.createReader(AnnotationWithDefaultValue.class));
+    }
+
 }

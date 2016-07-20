@@ -19,6 +19,7 @@ interface Config {
 
     String name();
 
+    @Bind
     int age();
 
     String city();
@@ -93,5 +94,11 @@ interface WrongReturnType {
 @Env
 interface WrongPropertyType {
     int Path();
+}
+
+@Env(type = Type.JSON, file = Constants.JSON_FILE_PATH)
+interface AnnotationWithDefaultValue {
+    @Bind
+    String name();
 }
 

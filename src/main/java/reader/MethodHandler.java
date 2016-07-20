@@ -34,14 +34,14 @@ class MethodHandler {
             throw new EnvException("Method can have only int,double,float,boolean,Integer,Float,Double,Boolean and String as return types");
         }
 
-        String propertyName = method.getName();
+        String propertyName = "";
         if (method.isAnnotationPresent(Property.class)) {
             propertyName = method.getAnnotation(Property.class).value();
         } else if (method.isAnnotationPresent(Bind.class)) {
             propertyName = method.getAnnotation(Bind.class).value();
         }
         if (propertyName.isEmpty()) {
-            throw new EnvException("Property name cannot be empty");
+            propertyName = method.getName();
         }
         return propertyName;
     }
