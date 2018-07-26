@@ -60,7 +60,7 @@ interface PropertiesConfig {
     String city();
 }
 
-@Env(type = Type.JSON, file = "blahblahblah")
+@Env(type = Type.JSON, file = "/blahblahblah")
 interface InvalidFileLocationInterface {
 
 }
