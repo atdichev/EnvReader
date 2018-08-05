@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,10 +19,11 @@ class EnvInvocationHandler implements InvocationHandler {
     EnvInvocationHandler(Class<?> aClass) {
         Env env = aClass.getAnnotation(Env.class);
         Type type = env.type();
-        File file = new File(env.file());
-        if (type != Type.SYSTEM_ENV && !Utils.existsFile(file)) {
+        URL url = aClass.getResource(env.file());
+        if (type != Type.SYSTEM_ENV && url == null) {
             throw new EnvException(new FileNotFoundException());
         }
+        File file = (type != Type.SYSTEM_ENV) ? new File(url.getFile()) : null;
         PropertyParser parser = ParserFactory.createParser(type, file);
         EnvConfig envConfig = new EnvConfig(env);
         for (Method method : aClass.getMethods()) {

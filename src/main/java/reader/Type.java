@@ -5,5 +5,6 @@ public enum Type {
     YAML,
     XML,
     PROPERTIES,
+    TEXT,
     SYSTEM_ENV
 }
