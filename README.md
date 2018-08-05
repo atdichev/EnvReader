@@ -1,8 +1,7 @@
-# EnvReader 
-[![Build Status](https://travis-ci.org/ashrko619/EnvReader.svg?branch=master)](https://travis-ci.org/ashrko619/EnvReader)
+# EnvReader
 
 Type safe Java configuration management solution completeley based on annotations.
-Supports JSON, XML, YAML, Java properties and System environment variables.
+Supports JSON, XML, YAML, Java properties, TEXT files and System environment variables.
 Binding is supported to read the latest values from the corresponding source.
 
 
@@ -11,20 +10,20 @@ Binding is supported to read the latest values from the corresponding source.
 ```java
 @Env // By default values are read from system env
 interface Config {
-  
+
     //by default method name is the property key
     int port();
-  
+
     //@Property annotation can be used to use custom names for property key
     @Property("dburl")
     String getDbUrl();
-  
+
     //@Bind annotation binds the property key with value. Each time the updated value is read
     @Bind("debugflag")
-    boolean isDebug(); // type conversions are handled 
-    
+    boolean isDebug(); // type conversions are handled
+
     @Bind
-    boolean enableLog(); 
+    boolean enableLog();
 }
 
 //create
