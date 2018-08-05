@@ -102,3 +102,14 @@ interface AnnotationWithDefaultValue {
     String name();
 }
 
+@Env(type = Type.TEXT)
+interface AnnotationText {
+    @Bind("/file1.txt")
+    String content1();
+    
+    @Bind("/file2.txt")
+    String content2();
+    
+    @Bind("/file3")
+    String file3();    
+}

@@ -24,6 +24,8 @@ public class ParserFactory {
                 } catch (FileNotFoundException e) {
                     throw new EnvException(e);
                 }
+            case TEXT:
+                return new TextParser();
         }
         //irrelevant, all types have a corresponding parser
         return null;

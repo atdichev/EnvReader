@@ -1,0 +1,3 @@
+Type safe Java configuration management solution completeley based on annotations.
+Supports JSON, XML, YAML, Java properties and System environment variables.
+Binding is supported to read the latest values from the corresponding source.

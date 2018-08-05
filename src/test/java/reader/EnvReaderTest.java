@@ -107,5 +107,10 @@ public class EnvReaderTest {
     public void testTakeMethodNameAsKeyWhenBindValueEmpty() {
         Assert.assertNotNull(EnvReader.createReader(AnnotationWithDefaultValue.class));
     }
+    
+    @Test
+    public void testTakeText() {
+        Assert.assertNotNull(EnvReader.createReader(AnnotationText.class));
+    }
 
 }
