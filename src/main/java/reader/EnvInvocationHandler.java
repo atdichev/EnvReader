@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +25,12 @@ class EnvInvocationHandler implements InvocationHandler {
         if (type != Type.SYSTEM_ENV && url == null) {
             throw new EnvException(new FileNotFoundException());
         }
-        File file = (type != Type.SYSTEM_ENV) ? new File(url.getFile()) : null;
+        File file;
+		try {
+			file = (type != Type.SYSTEM_ENV) ? Paths.get(url.toURI()).toFile() : null;
+		} catch (URISyntaxException e) {
+			throw new EnvException(e);
+		}
         PropertyParser parser = ParserFactory.createParser(type, file);
         EnvConfig envConfig = new EnvConfig(env);
         for (Method method : aClass.getMethods()) {
