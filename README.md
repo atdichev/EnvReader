@@ -95,6 +95,12 @@ interface JsonConfig extends Config {
 Config config = EnvReader.createReader(JsonConfig.class);
 ```
 
+Generate JAR
+
+```bash
+
+./gradlew jar
+```
 
 ### Contributing
 
