@@ -1,4 +1,4 @@
-package reader.parsers;
+package com.azsoftware.envreader.reader.parsers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

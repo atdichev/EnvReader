@@ -1,4 +1,4 @@
-package reader;
+package com.azsoftware.envreader.reader;
 
 public enum Type {
     JSON,

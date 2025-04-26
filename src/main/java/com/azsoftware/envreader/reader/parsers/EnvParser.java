@@ -1,4 +1,4 @@
-package reader.parsers;
+package com.azsoftware.envreader.reader.parsers;
 
 import java.util.Map;
 

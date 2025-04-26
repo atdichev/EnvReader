@@ -1,10 +1,10 @@
-package reader;
-
-import annotation.Bind;
-import annotation.Property;
-import reader.parsers.PropertyParser;
+package com.azsoftware.envreader.reader;
 
 import java.lang.reflect.Method;
+
+import com.azsoftware.envreader.annotation.Bind;
+import com.azsoftware.envreader.annotation.Property;
+import com.azsoftware.envreader.reader.parsers.PropertyParser;
 
 class MethodHandler {
 

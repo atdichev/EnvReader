@@ -1,4 +1,4 @@
-package reader;
+package com.azsoftware.envreader.reader;
 
 import java.io.File;
 import java.util.HashSet;

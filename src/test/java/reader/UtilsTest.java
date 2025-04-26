@@ -3,6 +3,8 @@ package reader;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.azsoftware.envreader.reader.Utils;
+
 public class UtilsTest {
     @Test
     @SuppressWarnings("all")

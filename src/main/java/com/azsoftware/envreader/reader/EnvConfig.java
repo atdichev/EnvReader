@@ -1,6 +1,6 @@
-package reader;
+package com.azsoftware.envreader.reader;
 
-import annotation.Env;
+import com.azsoftware.envreader.annotation.Env;
 
 // Useful when more config properties added like ( deployPath -> DEPLOY_PATH)
 class EnvConfig {

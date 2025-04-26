@@ -2,6 +2,9 @@ package reader.parsers;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.azsoftware.envreader.reader.parsers.JsonParser;
+
 import reader.Constants;
 
 import java.io.File;

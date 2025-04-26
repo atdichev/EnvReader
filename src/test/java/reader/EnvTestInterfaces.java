@@ -1,10 +1,11 @@
 package reader;
 
-import annotation.Bind;
-import annotation.Env;
-import annotation.Property;
-
 import java.util.List;
+
+import com.azsoftware.envreader.annotation.Bind;
+import com.azsoftware.envreader.annotation.Env;
+import com.azsoftware.envreader.annotation.Property;
+import com.azsoftware.envreader.reader.Type;
 
 @Env(type = Type.JSON, file = Constants.JSON_FILE_PATH)
 interface EnvTestInterface {

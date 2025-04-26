@@ -3,6 +3,9 @@ package reader;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.azsoftware.envreader.reader.EnvException;
+import com.azsoftware.envreader.reader.EnvReader;
+
 public class EnvReaderTest {
 
     @Test

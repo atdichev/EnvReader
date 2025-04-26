@@ -1,10 +1,10 @@
-package reader.parsers;
-
-import reader.EnvException;
+package com.azsoftware.envreader.reader.parsers;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+import com.azsoftware.envreader.reader.EnvException;
 
 public class JavaPropertiesParser implements PropertyParser {
 

@@ -1,11 +1,11 @@
-package reader.parsers;
-
-import reader.EnvException;
-import reader.Type;
+package com.azsoftware.envreader.reader.parsers;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
+import com.azsoftware.envreader.reader.EnvException;
+import com.azsoftware.envreader.reader.Type;
 
 public class ParserFactory {
     public static PropertyParser createParser(final Type type, final File file) {

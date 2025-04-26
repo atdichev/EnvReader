@@ -1,8 +1,8 @@
-package reader;
-
-import annotation.Env;
+package com.azsoftware.envreader.reader;
 
 import java.lang.reflect.Proxy;
+
+import com.azsoftware.envreader.annotation.Env;
 
 
 public class EnvReader {

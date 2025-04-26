@@ -1,8 +1,8 @@
-package reader.parsers;
+package com.azsoftware.envreader.reader.parsers;
 
+import com.azsoftware.envreader.reader.EnvException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import reader.EnvException;
 
 import java.io.File;
 import java.io.IOException;
